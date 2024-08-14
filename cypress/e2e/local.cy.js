@@ -1,8 +1,24 @@
+// local 离线模式
 describe("The Home Page", () => {
   it("successfully loads", () => {
-    cy.visit("http://localhost:3000/novel-demo"); // change URL to match your dev URL
+    // TODO: local 3000 is changed
+    cy.visit("http://localhost:3002/novel-demo"); // change URL to match your dev URL
+
+    // cy.contains("在线小说阅读器").click();
+
+    // Should be on a new URL which
+    cy.url().should("include", "localhost");
+
+    // Get an button, type into it
+    // 这里可能有多个按钮，测试不通过
+    cy.get(".icon-search").type("芭芭拉");
+
+    // // Verify that the value has been updated
+    // cy.get(".add-novel-dialog-main").type("test");
   });
 });
+
+// 本地服务器模式
 
 // describe('The Login Page', () => {
 //   beforeEach(() => {
